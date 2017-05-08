@@ -1,0 +1,74 @@
+#Header {
+    height: 50px;
+    width: 100%;
+    
+    position: absolute;
+    top: 0;
+    left: 0;
+        
+    background-color: cornflowerblue;
+}
+
+#HomeBtn {
+    height: 100%;
+    width: 120px;
+    
+    border: none;
+    
+    background-color: cornflowerblue;
+    color: white;
+    
+    font-style: oblique;
+    font-weight: bold;
+    font-size: 130%;
+    
+    -webkit-transition: background-color 4s, width 3s;
+    transition: background-color 4s, width 3s;
+}
+
+#HomeBtn:hover {
+    background-color: #5077bd;
+    width: 50%;
+}
+
+#ProfileBox {
+    height: 100%;
+    width: 210px;
+    
+    top: 0px;
+    right: 0;
+        
+    position: absolute;
+    
+    line-height: 50px;
+    vertical-align: middle;
+    
+    font-family: verdana;
+    font-weight: bold;
+    font-size: 15px;
+    
+    
+    text-indent: 3%;
+    
+    -webkit-transition: background-color 4s, width 3s;
+    transition: background-color 4s, width 3s;
+}
+
+#ProfileBox:hover {
+    background-color: #5077bd;
+    width: 50%;
+}
+
+#profilePicture {
+    width: auto;
+    height: 100%;
+    
+    float: right;
+    
+    
+    border-radius: 180px;
+}
+
+#logo {
+    vertical-align: middle;
+}

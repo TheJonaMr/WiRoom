@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <title>WiRoom LogOn</title>
+        
+        <link rel="stylesheet" type="text/css" href="styles\LogOn.css">
+        
+        <script src="https://www.dropbox.com/s/4mzovs0o9xx0kjt/jquery.js?dl=1"></script> 
+        
+        <script src="scripts\WiFi.js"></script>
+        <script src="scripts\fish.js"></script>
+        <script src="scripts\ajax.js"></script>
+        
+        <!--<meta http-equiv="refresh" content="5">-->
+        <meta charset="UTF-8">        
+    </head>
+
+    <body>   
+             
+        <!--<div id="demo">...</div>-->
+        
+        <div>
+            <canvas class="WiFi" id="WiFi_Bar1" width="300" height="300" onClick="draw('red');"></canvas>
+        </div>
+        <div>
+            <canvas class="WiFi" id="WiFi_Bar2" width="320" height="300"></canvas>
+        </div>
+        <div>
+            <canvas class="WiFi" id="WiFi_Bar3" width="450" height="400"></canvas>
+        </div>
+        
+        <div>
+            <img src="pictures\fishwh.png" id="fishContainer">
+            
+            <canvas  width="306" height="150" id="fish1" class="fish"></canvas>
+        </div>
+        
+        <div>
+            <img src="pictures\logo.png" alt="Logo" id="logo">
+			 <div id="userData" action="" method="post">
+                 <span id="username_span" class="formText">Identification</span>
+                 
+				 <input class="TextBox" id="username" type="text" name="Id">
+                 
+                 <span id="password_span" class="formText">Password</span>
+                 
+				 <input type="password" class="TextBox" id="password" type="text" name="Pw">
+			 </div>
+            <input class="Button" type="button" value="Login" onclick="ajax()">
+		</div>
+        
+    </body>
+    
+</html>

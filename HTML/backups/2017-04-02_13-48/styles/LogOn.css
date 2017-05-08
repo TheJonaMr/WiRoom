@@ -1,0 +1,217 @@
+* {
+    font-family: verdana;
+    font-weight: bold;
+    
+    
+}
+
+body {
+    background-color: cornflowerblue;
+    z-index: -2;
+}
+
+div {
+    position: fixed;
+	height: 400px;
+	width: 400px;
+	
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    z-index: 1;
+    
+    background-color: white;
+    /*border-style: dotted;*/
+    border-radius: 200px;
+}
+
+#demo {
+    position: fixed;
+	height: 400px;
+	width: 400px;
+	
+    top: 40%;
+    left: 20%;
+        
+}
+
+#logo {
+	position: absolute;
+    
+    padding: 25px;
+    
+    border-radius: 180px;
+    
+    background-color: cornflowerblue;
+    
+    top: 25%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    
+    transition: background-color 0.5s;
+}
+
+#logo:hover {
+    background-color: #5077bd;
+}
+
+#userData {
+	position: absolute;
+
+    width: 350px;
+    height: 75px;
+    
+    top: 47%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+span.formText {
+    font-size: 10px;
+    position: absolute;
+}
+
+input {
+    position: absolute;
+    
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    
+    border-style: none;
+    border-bottom-style: solid;
+}
+
+input.TextBox {
+    width: 350px;
+    margin: 3px;
+}
+
+input#username {
+    top: 30%;
+}
+
+input#password {
+    top: 80%;
+}
+
+span#username_span {
+    top: 0%;
+}
+
+span#password_span {
+    top: 50%;
+}
+
+input.Button {
+	position: absolute;
+    height: 130px;
+    width: 300px;
+    
+    border-style: none;
+    
+    background-color: cornflowerblue;
+    
+    font-size: 40px;
+    color: white;
+    
+    
+	top: 75%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-left-radius: 400px;
+    border-bottom-right-radius: 400px;
+    
+    transition: background-color 0.5s;
+    
+}
+
+.Button:hover {
+    background-color: #5077bd;
+}
+
+#fishContainer {
+    display: none;
+}
+
+.fish {
+    width: 150px;
+    z-index: -2;
+    position: absolute;
+}
+
+#fish1 {
+    left:10px; top:200px
+    
+    /* Safari 4.0 - 8.0 */
+    -webkit-animation-name: fish1;
+    -webkit-animation-duration: 5s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-delay: 0s;
+    -webkit-animation-iteration-count: infinite;
+    /* Standard syntax */
+    animation-name: fish1;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes fish1 {
+    from {
+		transform: rotate(-100deg)
+		           translate(-150px)
+		           rotate(75deg);
+	}
+	to {
+		transform: rotate(240deg)
+		           translate(-150px)
+		           rotate(100deg);
+	}
+    
+}
+
+.WiFi {
+    position: absolute;
+    z-index: 1;
+    
+    animation-name: WiFi_Bars;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#WiFi_Bar1 {
+    right: -170px;
+    top: -40px;
+    transform: rotate(10deg);
+    
+}
+
+#WiFi_Bar2 {
+    right: -200px;
+    top: -140px;
+    transform: rotate(7deg);
+    animation-delay: 1s;
+}
+
+#WiFi_Bar3 {
+    right: -330px;
+    top: -230px;
+    transform: rotate(6deg);
+    animation-delay: 2s;
+}
+
+@keyframes WiFi_Bars {
+    from {opacity: 1;}
+	to {opacity: 0;}
+}

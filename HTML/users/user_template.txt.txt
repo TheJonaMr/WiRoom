@@ -1,0 +1,5 @@
+username
+password
+active
+permission
+last login ip

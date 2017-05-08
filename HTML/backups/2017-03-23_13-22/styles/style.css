@@ -1,0 +1,65 @@
+#Header {
+    height: 50px;
+    width: 100%;
+    
+    position: absolute;
+    top: 0;
+    left: 0;
+        
+    background-color: cornflowerblue;
+}
+
+#HomeBtn {
+    height: 100%;
+    width: 120px;
+    
+    border: none;
+    
+    background-color: cornflowerblue;
+    color: white;
+    
+    font-style: oblique;
+    font-weight: bold;
+    font-size: 130%;
+    
+    -webkit-transition: background-color 2s;
+    transition: background-color 2s;
+}
+
+#HomeBtn:hover {
+    background-color: #5077bd;
+}
+
+#ProfileBox {
+    height: 100%;
+    width: 150px;
+    
+    top: 0px;
+    right: 0;
+        
+    position: absolute;
+    
+    -webkit-transition: background-color 2s;
+    transition: background-color 2s;
+}
+
+#ProfileBox:hover {
+    background-color: #5077bd;
+}
+
+#profilePicture {
+    width: auto;
+    height: 100%;
+    
+    position: absolute;
+    right: 0;
+}
+
+#controlContainer {
+    width: auto;
+    height: auto;
+    
+    position: relative;
+    
+    top: 51px;
+}

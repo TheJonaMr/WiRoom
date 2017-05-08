@@ -1,0 +1,72 @@
+const char* Extensions[6] = {"php", "css", "jpg", "ttf", "ico", "htm"};
+const char* Content_Type[6] = {"text/html", "text/css", "image/jpeg", "application/octet-stream", "image/x-icon", "text/html"};
+char* HTTP_Req[2] = {"", ""};
+int HTTPReqIndx = 0;
+
+void _ethernet(){
+EthernetClient client = server.available();
+  if (client) {
+    boolean currentLineIsBlank = true;
+      while (client.connected()) {
+        if (client.available()) {
+          char c = client.read();
+
+          if (HTTPReqIndx == 0 || HTTPReqIndx == 11) HTTP_Req[HTTPReqIndx] += c;
+
+
+          
+        //if (readString.length() < 100) readString += c;
+        if (c == '\n' && currentLineIsBlank) {
+          for (int i = 0; i < 13; i++) Serial.println(HTTP_Req[i]);
+
+          if (readString.indexOf("GET / HTTP/1.1") >= 0)  {
+            client.println("HTTP/1.1 200 OK\nContent-Type: " + String(Content_Type[5]) + '\n');
+            SendPage("index.htm", client);
+          }
+          else if (readString.indexOf("GET") == 0) {
+            Serial.println("GET");
+            for (int x = 0; x < 6; x++){
+              if(readString.indexOf(Extensions[x]) >=0) {
+                client.println("HTTP/1.1 200 OK\nContent-Type: " + String(Content_Type[x]) + '\n');
+                //Serial.println("HTTP/1.1 200 OK\nContent-Type: " + String(Content_Type[x]));
+                //Serial.println(String(Extensions[x]) + "_/_" + String(Content_Type[x]));
+                readString.remove(0, 5);
+                readString.remove(readString.indexOf("HTTP/1.1") - 1, readString.length());
+                //Serial.println(readString);
+                //Serial.println(readString.length());
+                SendPage(readString, client);
+              }
+            }
+          }
+
+          else if (readString.indexOf("POST") == 0) {
+            Serial.println("POST");
+            Serial.println(readString);
+          }
+          
+          readString="";
+          client.stop();
+        } //end if (c == '\n')
+                                                                                // every line of text received from the client ends with \r\n
+        if (c == '\n') currentLineIsBlank = true;                               // last character on line of received text starting new line with next character read
+        else if (c != '\r') {
+          HTTPReqIndx++;
+          currentLineIsBlank = false;                                           // a text character was received from client
+        }
+        
+      } //end if (client.available())
+    } //end while (client.connected())
+  } //end if (client)
+} //end void _ethernet()
+
+void SendPage(String path, EthernetClient client) {
+  File webFile = SD.open(path);
+  if (webFile) {
+    Serial.println(webFile.size());
+    while (webFile.available()) {
+      client.write(webFile.read());
+    }
+  }
+  else Serial.println("NoFile");
+  webFile.close();
+}

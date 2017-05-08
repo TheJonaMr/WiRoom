@@ -1,0 +1,11 @@
+<user>
+	<id>2</id>
+	<username>thejonamr</username>
+	<password>password1</password>
+	<permitionLvl>1</permitionLvl>
+	<status>active</status>
+	<cookie>
+		<id></id>
+		<time></time>
+	</cookie>
+</user>

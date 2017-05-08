@@ -1,0 +1,56 @@
+//Code for Ethernet
+#include <SPI.h>
+#include <Ethernet.h>
+#include <SD.h>
+// size of buffer used to capture HTTP requests
+#define REQ_BUF_SZ 60
+
+// Enter a MAC address and IP address for your controller below.
+// The IP address will be dependent on your local network:
+byte mac[] = {0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED};
+//IPAddress ip(192, 168, 1, 200);
+
+// Initialize the Ethernet server library
+// with the IP address and port you want to use
+// (port 80 is default for HTTP):
+EthernetServer server(80);  // create a server at port 80
+File webFile;               // the web page file on the SD card
+
+char HTTP_req[REQ_BUF_SZ] = {0}; // buffered HTTP request stored as null terminated string
+char req_index = 0;              // index into HTTP_req buffer
+
+String readString;
+
+//General Code
+
+void setup() {
+  // disable Ethernet chip
+  pinMode(10, OUTPUT);
+  digitalWrite(10, HIGH);
+  
+  Serial.begin(250000);
+
+  // initialize SD card
+  if (!SD.begin(4)) {
+      return;    // init failed
+  }
+  
+  // check for index.htm file
+  if (!SD.exists("index.php")) {
+      Serial.println("ERROR - Can't find index.php file!");
+      return;  // can't find index file
+  }
+  // start the Ethernet connection and the server:
+    Ethernet.begin(mac);
+    server.begin();
+    Serial.print("server@");
+    Serial.println(Ethernet.localIP());
+  }
+
+
+void loop() {
+  // listen for incoming clients
+  _ethernet();
+//  _clock();
+//  _commands();
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <title>WiRoom LogOn</title>
+        
+        <link rel="stylesheet" type="text/css" href="styles\LogOn.css">
+        
+        <script src="jQuery\jquery.js"></script> 
+        
+        <script src="scripts\WiFi.js"></script>
+        <script src="scripts\fish.js"></script>
+        
+        <!--<meta http-equiv="refresh" content="5">-->
+        
+    </head>
+
+    <body>   
+                
+        <div>
+            <canvas class="WiFi" id="WiFi_Bar1" width="300" height="300" onClick="draw('red');"></canvas>
+        </div>
+        <div>
+            <canvas class="WiFi" id="WiFi_Bar2" width="320" height="300"></canvas>
+        </div>
+        <div>
+            <canvas class="WiFi" id="WiFi_Bar3" width="450" height="400"></canvas>
+        </div>
+
+        
+        <div>
+            <img src="pictures\fishwh.png" id="fishContainer">
+            
+            <canvas  width="306" height="150" id="fish1" class="fish"></canvas>
+        </div>
+        
+        <div>
+            <img src="pictures\logo.png" alt="profilePicture" id="logo">
+			 <form id="userData" action="" method="post">
+                 <span id="username" class="formText">Identification</span>
+                 
+				 <input class="TextBox" id="username" type="text" name="Id">
+                 
+                 <span id="password" class="formText">Password</span>
+                 
+				 <input type="password" class="TextBox" id="password" type="text" name="Pw">
+			 </form>
+            <input form="userData" class="Button" type="submit" value="Login">
+		</div>
+        
+    </body>
+    
+</html>
